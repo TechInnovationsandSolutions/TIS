@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tis"
+    }
+  },
+  "defaultProject": "tis",
+  "cli": {
+    "analytics": false
+  }
 }
