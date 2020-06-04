@@ -1,0 +1,157 @@
+@import "./../variable";
+
+.footer {
+  @include flexWithMaxWidth();
+
+  p {
+    @include maxWithWidth100();
+    text-align: center;
+
+    &.copyright {
+      color: #C4C4C4;
+      padding-bottom: 50px;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    &.footer_section-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      color: #535050;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+  }
+
+  .footer_section {
+    @include flexWithMaxWidth();
+    padding: 30px;
+
+    ul {
+      @include flexWithMaxWidth();
+      list-style: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .footer_section--sub {
+    @extend .footer;
+  }
+
+  .footer_section--1 {
+    background: #fafafa;
+    text-align: center;
+    padding-top: 50px;
+
+    p {
+      &:first-of-type {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 21px;
+      }
+
+      &:last-of-type {
+        font-size: 11px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.72);
+      }
+    }
+
+    a {
+      font-size: 12px;
+      line-height: 17px;
+      border-radius: $brA;
+      background: $green;
+      padding: 4px 18px;
+      margin: auto auto 21px;
+      color: #ffffff;
+    }
+  }
+
+  .footer_section--2 {
+    #footer-logo {
+      width: 126px;
+      @include flexWrap();
+      margin: auto auto 23px;
+
+      span.icon {
+        @include flexWithMaxWidth();
+
+        svg {
+          margin: 0 auto;
+        }
+
+        span.logo-text {
+          @include flexWrap();
+          width: 121px;
+          margin: auto;
+
+          span {
+            @include maxWithWidth100();
+            font-weight: bold;
+            text-align: center;
+            font-size: 10px;
+            line-height: 14px;
+
+            &.top {
+              letter-spacing: 0.06em;
+            }
+
+            &.bottom {
+              font-weight: bold;
+              letter-spacing: 0.7em;
+            }
+          }
+        }
+      }
+    }
+
+    .motto {
+      font-size: 14px;
+      line-height: 20px;
+      color: $pseudoBlack;
+      margin: 0 auto;
+    }
+
+    .footer_section-contacts {
+      max-width: 150px;
+
+      .contact {
+        @include maxWithWidth100();
+        display: grid;
+        grid-template-columns: 24px auto;
+        margin: 10px auto;
+        color: $pseudoBlack;
+        font-size: 10px;
+        line-height: 14px;
+
+        a {
+          color: $pseudoBlack;
+        }
+      }
+    }
+
+    .footer_section-social-media {
+      max-width: 320px;
+
+
+      li {
+        display: inline-block;
+        margin: auto;
+
+        a.social-media {
+          @include flexWrap();
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+$green: #32AB13;
+$brandBlue: #2B3990;
+$brandPink: #EC008C;
+$brandOrange: #F7941D;
+$deepBlue: #373595;
+$veryLightBlue: #E3E2FD;
+$pseudoBlack: #6A6A6A;
+$brA: 3px;
+
+@mixin flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin wid100 {
+  width: 100%;
+}
+
+@mixin maxWid100 {
+  max-width: 100%;
+}
+
+@mixin maxWithWidth100 {
+  @include wid100();
+  @include maxWid100();
+}
+
+@mixin flexWithWidth {
+  @include flexWrap();
+  @include wid100();
+}
+
+@mixin flexWithMaxWidth {
+  @include flexWithWidth();
+  @include maxWid100();
+}
