@@ -1,0 +1,30 @@
+@import './../variable';
+
+.work-page {
+  .hero-page {
+    @include flexWithMaxWidth();
+    background: linear-gradient(180deg, #2B3990 39.06%, #A0A9DC 100%);
+    min-height: 137px;
+    justify-content: center;
+    align-content: center;
+
+    p {
+      font-size: 10px;
+      line-height: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .list-of-works {
+    @include flexWithWidth();
+    padding: 0 20px;
+    margin-top: -30px;
+
+    .work {
+      @include flexWithMaxWidth();
+      padding: 30px 16px 15px;
+    }
+  }
+}

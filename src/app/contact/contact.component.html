@@ -1,0 +1,41 @@
+<section class="contact-page">
+  <div class="contact-page-content-wrapper">
+    <div class="hero-page">
+      <h2>Contact us.</h2>
+      <div class="col-sm-12 text-center mx-auto">
+        <p>Have you got an idea Have you got an idea</p>
+        <p>Have you got an idea Have you got an idea</p>
+        <p>Have you got an idea Have you got an idea</p>
+      </div>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group fg-50">
+          <label for="firstName" class="sr-only">First Name</label>
+          <input id="firstName" type="text" autocomplete="given-name" placeholder="First Name" formControlName="firstname" [ngClass]="{' is-invalid': getContactFrom.firstname.invalid && getContactFrom.firstname.dirty}">
+        </div>
+        <div class="form-group fg-50">
+          <label for="lastName" class="sr-only">Last Name</label>
+          <input id="lastName" type="text" autocomplete="family-name" placeholder="Last Name" formControlName="lastname" [ngClass]="{' is-invalid': getContactFrom.lastname.invalid && getContactFrom.lastname.dirty}">
+        </div>
+        <div class="form-group fg-50">
+          <label for="phoneNuber" class="sr-only">Phone Number</label>
+          <input id="phoneNuber" type="tel" autocomplete="tel" placeholder="Phone Number" formControlName="phoneNumber" [ngClass]="{' is-invalid': getContactFrom.phoneNumber.invalid && getContactFrom.phoneNumber.dirty}">
+        </div>
+        <div class="form-group fg-50">
+          <label for="email" class="sr-only">Email Address</label>
+          <input id="email" type="email" autocomplete="email" placeholder="Email Address" formControlName="email" [ngClass]="{' is-invalid': getContactFrom.email.invalid && getContactFrom.email.dirty}">
+        </div>
+        <div class="form-group">
+          <label for="message" class="sr-only">Enter Project Details</label>
+          <textarea id="message" type="text" formControlName="body" placeholder="Enter Project Details" [ngClass]="{' is-invalid': getContactFrom.body.invalid && getContactFrom.body.dirty}"></textarea>
+        </div>
+        <div class="col-sm-12 d-flex flex-wrap py-2 px-0">
+          <button type="submit" class="mr-0 ml-auto" [disabled]="contactForm.invalid || contactForm.pristine">
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

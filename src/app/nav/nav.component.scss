@@ -1,0 +1,165 @@
+@import './../variable';
+
+nav {
+  @include flexWithMaxWidth();
+
+  .top-nav-section {
+    @include flexWithMaxWidth();
+    padding: 59px 10px 16px 1px;
+    align-items: center;
+  }
+
+  a#logo {
+    width: 126px;
+    height: 73px;
+    @include flexWrap();
+
+    span.icon {
+      @include flexWithMaxWidth();
+
+      svg {
+        margin: 0 auto;
+      }
+
+      span.logo-text {
+        font-size: 7px;
+        @include flexWithMaxWidth();
+
+        span {
+          @include maxWithWidth100();
+          font-weight: bold;
+          text-align: center;
+
+          &.top {
+            letter-spacing: 0.06em;
+          }
+
+          &.bottom {
+            letter-spacing: 0.7em;
+          }
+        }
+      }
+    }
+  }
+
+  .other-fn {
+    @include flexWrap();
+    margin-right: 0;
+    margin-left: auto;
+    align-items: center;
+
+    .start-projects {
+      background: $green;
+      border-radius: $brA;
+      font-weight: 500;
+      font-size: 10px;
+      padding: 10px 7px;
+      text-align: center;
+      justify-content: center;
+      color: #FFFFFF;
+      height: fit-content;
+      margin-right: 11px;
+    }
+
+    .toggle-btn {
+      @include flexWrap();
+      width: 24px;
+      height: 24px;
+      border: 0;
+      outline: none;
+
+      span {
+        width: 24px;
+        height: 3.75px;
+        background: #000;
+        margin: auto;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .collapsible {
+    @include flexWithMaxWidth();
+    flex-direction: column;
+    display: none;
+
+    .nav-list {
+      @include flexWithMaxWidth();
+      list-style: none;
+      padding: 12px 0;
+      margin: 0;
+
+      .nav-item {
+        @include maxWithWidth100();
+        margin: 10px 0;
+
+        a {
+          @include flexWithMaxWidth();
+          padding: 5px 30px;
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .collapsible-details {
+      flex: 1;
+      padding: 15px;
+      background: linear-gradient(123.29deg, #000000 6.14%, $brandBlue 68.83%);
+      justify-content: center;
+      align-items: center;
+      @include flexWithMaxWidth();
+
+      .content-wrapper {
+        display: grid;
+        margin: auto;
+
+        p {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 28px;
+          color: #FFFFFF;
+          width: fit-content;
+          margin-bottom: 20px;
+
+          &:first-of-type {
+            font-weight: bold;
+            font-size: 14px;
+          }
+
+          &:last-of-type {
+            font-size: 10px;
+            line-height: 14px;
+          }
+
+          &:first-of-type, &:last-of-type {
+            margin-bottom: 16px;
+          }
+        }
+
+        .btn-contact {
+          padding: 9px 6px;
+          border-radius: $brA;
+          background: #FFFFFF;
+          color: #2B3990;
+          font-weight: bold;
+          font-size: 10px;
+          width: fit-content;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 375px) {
+    .top-nav-section {
+      padding: 59px 34px 16px 11px;
+    }
+  }
+}

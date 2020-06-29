@@ -1,0 +1,59 @@
+<div class="footer">
+  <div class="footer_section footer_section--1">
+    <p>Let’s build your product</p>
+    <p>
+      Partner with us in bulding world-class digital products, experiences, and brands
+    </p>
+    <div class="col-sm-12 d-flex flex-wrap">
+      <a role="button" class="btn-lets-talk">
+        Let’s Talk
+      </a>
+    </div>
+  </div>
+  <div class="footer_section footer_section--2">
+    <div class="footer_section footer_section--sub">
+      <a id="footer-logo">
+        <span class="icon">
+          <svg width="119" height="66" viewBox="0 0 119 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="71" height="22" fill="#2B3990"/>
+            <rect y="22" width="95" height="22" fill="#EC008C"/>
+            <rect y="44" width="119" height="22" fill="#F7941D"/>
+          </svg>
+          <span class="logo-text text-center">
+            <span class="top">TECH INNOVATIONS</span>
+            <span class="bottom">SOLUTIONS</span>
+          </span>
+        </span>
+        <span class="motto">
+          Building for Business Goals
+        </span>
+      </a>
+    </div>
+    <div class="footer_section footer_section--sub">
+      <p class="footer_section-title">
+        Reach out
+      </p>
+      <ul class="footer_section-contacts">
+        <li class="contact" *ngFor="let contact of contacts">
+          <span class="icon" [innerHTML]="makeSvg(contact.icon)"></span>
+          <a [href]="contact.link" target="_blank" tabindex="-1" [title]="contact.desc">
+            {{contact.text}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer_section footer_section--sub">
+      <p class="footer_section-title">
+        Our Socials
+      </p>
+      <ul class="footer_section-social-media">
+        <li *ngFor="let social of socialMedia">
+          <a [href]="social.link" target="_blank" tabindex="-1" [title]="social.name" class="social-media" [innerHTML]="makeSvg(social.icon)"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">
+    &copy; 2018 Tech Innovation and Solutions
+  </p>
+</div>
