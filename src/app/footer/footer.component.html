@@ -48,7 +48,7 @@
       </p>
       <ul class="footer_section-social-media">
         <li *ngFor="let social of socialMedia">
-          <a [href]="social.link" target="_blank" tabindex="-1" [title]="social.name" class="social-media" [innerHTML]="makeSvg(social.icon)"></a>
+          <a [href]="social.link" target="_blank" rel="noopener" tabindex="-1" [title]="social.name" class="social-media" [innerHTML]="makeSvg(social.icon)"></a>
         </li>
       </ul>
     </div>
