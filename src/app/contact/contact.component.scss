@@ -1,14 +1,29 @@
 @import './../variable';
 
+@mixin gradBackground {
+  background: linear-gradient(180deg, #E77F7F 0%, #2B3990 100%);
+}
+
+@mixin gradMdBackground {
+  background: linear-gradient(113.37deg, #E77F7F -10.78%, #2B3990 60.3%);
+}
+
 .contact-page {
+  width: 100vw;
+
+  .contact-page-content-wrapper {
+    width: 100%;
+  }
+
   .hero-page {
     @include flexWithMaxWidth();
     min-height: 213px;
-    background: linear-gradient(180deg, #E77F7F 0%, #2B3990 100%);
     justify-content: center;
     align-content: center;
+    @include gradBackground();
 
     h2 {
+      width: 100%;
       font-weight: bold;
       font-size: 30px;
       line-height: 43px;
@@ -74,6 +89,77 @@
         border-radius: $brA;
         padding: 7px 11px;
         text-align: center;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    @include gradMdBackground();
+    height: 100vh;
+    @include flexWrap();
+    width: 100%;
+
+    .contact-page-content-wrapper {
+      width: 90%;
+      max-width: 1200px;
+      margin: 117px auto auto;
+      @include flexWrap();
+
+      .form-container, .hero-page {
+        width: 50%;
+      }
+
+      .hero-page {
+        background: none;
+        margin-bottom: auto;
+        justify-content: initial;
+        align-content: initial;
+        padding-top: 0;
+
+        h2 {
+          font-size: 60px;
+          margin-bottom: 107px;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 26px;
+        }
+      }
+
+      .form-container {
+        background: #FFFFFF;
+        border-radius: 6px;
+        padding: 51px 58px;
+
+        form {
+          width: 100%;
+          max-width: 100%;
+          @include flexWrap();
+
+          .fg-50 {
+            width: 50%;
+            max-width: 226px;
+
+            &:nth-child(odd) {
+              margin-left: 0;
+              padding-right: 20px;
+            }
+
+            &:nth-child(even) {
+              margin-right: 0;
+              padding-left: 20px;
+            }
+          }
+
+          input, textarea {
+            font-size: 15px;
+          }
+
+          button[type='submit'] {
+            padding: 13px 44px;
+          }
+        }
       }
     }
   }
