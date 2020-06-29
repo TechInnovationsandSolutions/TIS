@@ -7,24 +7,30 @@
     </div>
   </div>
   <div class="list-of-works">
-    <div class="work">
+    <div class="work" *ngFor="let work of works">
       <div class="work-header">
-        <img src="" alt="" class="work-company-logo">
+        <img [src]="work.logo" alt="Logo of {{work.name}}" class="work-company-logo">
         <div class="work-title">
-          <p class="work-company-name"></p>
-          <p class="work-type"></p>
+          <p class="work-company-name">
+            {{work.name}}
+          </p>
+          <p class="work-type">
+            {{work.work_type}}
+          </p>
         </div>
       </div>
       <div class="work-desc">
-
+        <p>
+          {{work.work_desc}}
+        </p>
       </div>
       <div class="work-showcase">
         <div class="work-showcase-img-container">
-          <img src="" alt="" class="work-showcase-img">
+          <img [src]="work.work_showcase" alt="showcase of work done by TIS for {{work.name}}" class="work-showcase-img">
         </div>
-        <button class="view-work">
+        <a role="button" rel="noopener" [href]="work.url" target="_blank" class="view-work">
           View More
-        </button>
+        </a>
       </div>
     </div>
   </div>
