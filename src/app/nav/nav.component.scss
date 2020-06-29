@@ -162,4 +162,23 @@ nav {
       padding: 59px 34px 16px 11px;
     }
   }
+
+  @media screen and (min-width: 1024px) {
+    max-width: $maxWidthSt;
+    margin: auto;
+
+    .top-nav-section {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    a#logo {
+      width: 90px;
+    }
+    .other-fn {
+      .start-projects {
+        margin-left: 32px;
+      }
+    }
+  }
 }
