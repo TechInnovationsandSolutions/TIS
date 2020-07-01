@@ -2,18 +2,22 @@
   <div class="hero-page">
     <h2 class="page-title">Building For Business Goals</h2>
     <p class="subtitle">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      We put you first and deliver to the utmost tech standards with professionalism and integrity at our core.
     </p>
   </div>
   <div class="our-services">
-    <div class="our-service">
-      <img src="" alt="" class="our-service-img">
-      <p class="our-service-title">
-
-      </p>
-      <p class="our-service-content">
-
-      </p>
+    <div class="our-service" *ngFor="let item of services">
+      <div class="our-service-header">
+        <span class="icon" [innerHTML]="makeSvg(item.icon)"></span>
+      </div>
+      <div class="our-service-body">
+        <p class="our-service-title">
+          {{item.title}}
+        </p>
+        <p class="our-service-content text-lightDark">
+          {{item.content}}
+        </p>
+      </div>
     </div>
   </div>
 </section>
