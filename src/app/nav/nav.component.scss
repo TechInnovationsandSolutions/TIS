@@ -1,18 +1,71 @@
 @import './../variable';
 
+$pT: 148px;
+
+.slideIn {
+  animation-name: slideIn;
+  animation-duration: 1.5s;
+}
+
+.slideDown {
+  animation-name: slideDown;
+  animation-duration: 1.5s;
+}
+
+.fadeSlide {
+  animation-name: fadeSlide;
+  animation-duration: 2s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    top: $pT;
+    transform: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: calc(100% - #{$pT});
+    top: $pT;
+  }
+  to {
+    height: 0;
+    top: 0;
+  }
+}
+
+@keyframes fadeSlide {
+  from {height: 0}
+  to {height: 100%;}
+}
+
 nav {
   @include flexWithMaxWidth();
+  z-index: 990;
+
+  .toggle-btn, a {
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
 
   .top-nav-section {
     @include flexWithMaxWidth();
     padding: 59px 10px 16px 1px;
     align-items: center;
+    z-index: inherit;
   }
 
   a#logo {
-    width: 126px;
+    width: 100px;
     height: 73px;
     @include flexWrap();
+    color: #121212;
 
     span.icon {
       @include flexWithMaxWidth();
@@ -35,7 +88,7 @@ nav {
           }
 
           &.bottom {
-            letter-spacing: 0.7em;
+            letter-spacing: 0.6em;
           }
         }
       }
@@ -67,12 +120,14 @@ nav {
       height: 24px;
       border: 0;
       outline: none;
+      background: #FFFFFF;
 
       span {
         width: 24px;
         height: 3.75px;
         background: #000;
         margin: auto;
+        transition: 0.5s;
 
         &:first-of-type {
           margin-top: 0;
@@ -82,16 +137,53 @@ nav {
           margin-bottom: 0;
         }
       }
+
+      &.open {
+        flex-direction: column;
+        justify-content: space-around;
+
+        span {
+          padding: 0;
+          margin: 0;
+
+          &:nth-child(1) {
+            transform: rotate(45deg);
+            margin-bottom: -24px;
+          }
+
+          &:nth-child(2) {
+            display: none;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+          }
+        }
+      }
     }
   }
 
   .collapsible {
     @include flexWithMaxWidth();
-    flex-direction: column;
-    display: none;
+    position: fixed;
+    // height: calc(100% - #{$pT});
+    background-color: #FFFFFF;
+    z-index: 700;
+    left: 0;
+    height: calc(100% - #{$pT});
+    top: $pT;
+    transition: 1.5s;
+
+    &.open {
+      transform: none;
+    }
+
+    &.close {
+      transform: translateY(-200%);
+    }
 
     .nav-list {
-      @include flexWithMaxWidth();
+      @include flexWrap();
       list-style: none;
       padding: 12px 0;
       margin: 0;
@@ -105,6 +197,11 @@ nav {
           padding: 5px 30px;
           font-weight: bold;
           font-size: 16px;
+          color: #121212;
+
+          &.active {
+            color: $brandBlue;
+          }
         }
       }
     }
@@ -115,7 +212,7 @@ nav {
       background: linear-gradient(123.29deg, #000000 6.14%, $brandBlue 68.83%);
       justify-content: center;
       align-items: center;
-      @include flexWithMaxWidth();
+      @include flexWrap();
 
       .content-wrapper {
         display: grid;
@@ -163,6 +260,16 @@ nav {
     }
   }
 
+  @media screen and (min-width: 768px) {
+    .other-fn {
+      .start-projects {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+      }
+    }
+  }
+
   @media screen and (min-width: 1024px) {
     max-width: $maxWidthSt;
     margin: auto;
@@ -172,12 +279,65 @@ nav {
       padding-right: 0;
     }
 
-    a#logo {
-      width: 90px;
-    }
     .other-fn {
       .start-projects {
         margin-left: 32px;
+      }
+    }
+
+    .collapsible {
+      .nav-list, .collapsible-details {
+        height: 100%;
+      }
+
+      .nav-list {
+        height: fit-content;
+        margin: auto;
+
+        .nav-item {
+          margin-bottom: 58px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          a {
+            font-size: 30px;
+            line-height: 43px;
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      .collapsible-details {
+        .content-wrapper {
+          width: 382px;
+
+          p {
+            font-size: 60px;
+            line-height: 85px;
+            height: fit-content;
+            margin-bottom: 24px;
+
+            &:first-of-type {
+              font-size: 20px;
+              margin-bottom: 42px;
+            }
+
+            &:last-of-type {
+              font-size: 18px;
+              line-height: 26px;
+              color: rgba(255, 255, 255, 0.9);
+              margin-bottom: 48px;
+            }
+          }
+
+          .btn-contact {
+            padding: 12px;
+            font-size: 16px;
+          }
+        }
       }
     }
   }

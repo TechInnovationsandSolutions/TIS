@@ -8,4 +8,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'tis';
+  showNavMenu = false;
+
+  onActivate(event) {
+    window.scrollTo(0, 0);
+  }
+
+  showNavFn() {
+    this.showNavMenu = !this.showNavMenu;
+  }
 }

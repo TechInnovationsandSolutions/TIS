@@ -1,6 +1,6 @@
 <nav>
   <div class="top-nav-section">
-    <a id="logo" role="link">
+    <a id="logo" role="link" [routerLink]='[""]'>
       <span class="icon">
         <svg width="90" height="49" viewBox="0 0 90 49" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.743652" width="52.8099" height="16.1984" fill="#2B3990"/>
@@ -14,40 +14,44 @@
       </span>
     </a>
     <div class="other-fn">
-      <a class="start-projects" role="link">
+      <a class="start-projects" role="link" [routerLink] ='["/contacts"]'>
         Lets start a project together
       </a>
-      <button class="toggle-btn">
+      <button class="toggle-btn" (click)="onClick()" [class.open] = "showNav">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
   </div>
-  <div class="collapsible">
-    <ul class="nav-list">
+  <div class="collapsible" [ngClass]="{
+    'd-flex': showNav,
+    'close': !showNav,
+    'slideIn': showNav
+  }">
+    <ul class="nav-list col-lg-6 order-lg-2 fadeSlide" >
       <li class="nav-item">
-        <a>
-          Works
+        <a (click)="onClick()" [routerLink]='["/about"]' routerLinkActive = "active">
+          About Us
+        </a>
+      </li>
+      <li class="nav-item" >
+        <a (click)="onClick()" [routerLink]='["/portfolio"]' routerLinkActive = "active">
+          Portfolio
         </a>
       </li>
       <li class="nav-item">
-        <a>
+        <a (click)="onClick()" [routerLink]='["/services"]' routerLinkActive = "active">
           Services
         </a>
       </li>
       <li class="nav-item">
-        <a>
-          About Us
-        </a>
-      </li>
-      <li class="nav-item">
-        <a>
-          Careers
+        <a (click)="onClick()" [routerLink]='["/contacts"]'>
+          Contact Us
         </a>
       </li>
     </ul>
-    <div class="collapsible-details">
+    <div class="collapsible-details col-lg-6 order-lg-1 fadeSlide">
       <div class="content-wrapper">
         <p>Like to talk?</p>
         <p>Get in touch</p>
@@ -55,7 +59,7 @@
           We are always available to answer your
           questions.
         </p>
-        <a role="button" class="btn-contact">
+        <a role="button" (click)="onClick()" [routerLink]='["/contacts"]' class="btn-contact">
           Contact us
         </a>
       </div>

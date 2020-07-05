@@ -42,22 +42,10 @@ export class LandingPageComponent implements OnInit {
 
   testimonials = [
     {
-      image: 'https://res.cloudinary.com/dv1dxey5w/image/upload/v1591123740/Ellipse_2_brxai2.png',
-      person: 'Sophie Cross',
-      title: 'CEO, Sophie Skincare',
-      message: 'With our engineering skillset, we help maximaize the efficiecy of the development process hence ensuring delivery of successful digital products.'
-    },
-    {
-      image: 'https://res.cloudinary.com/dv1dxey5w/image/upload/v1591123740/c_brg3kl.jpg',
-      person: 'Cross Sophie',
-      title: 'CEO, Skincare',
-      message: 'With our engineering skillset, we help maximaize the efficiecy of the development process hence ensuring delivery of successful digital products.'
-    },
-    {
-      image: 'https://res.cloudinary.com/dv1dxey5w/image/upload/v1591123740/c_brg3kl.jpg',
-      person: 'Cross Sophie',
-      title: 'CEO, Skincare',
-      message: 'With our engineering skillset, we help maximaize the efficiecy of the development process hence ensuring delivery of successful digital products.'
+      image: 'https://res.cloudinary.com/dv1dxey5w/image/upload/v1593467529/TIS/output-onlinepngtools_1_1_cd1nzg.png',
+      person: "Sophie's",
+      title: "CEO, Sophie's Bath and Body Essentials",
+      message: "I am so pleased with my beautiful website. It's amazing and easy to use. It's so easy to update my products, prices and even view my customers and collate a summary of transactions daily, weekly and monthly. Well done TIS!"
     }
   ];
 

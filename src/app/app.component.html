@@ -1,9 +1,11 @@
-<header>
-  <app-nav></app-nav>
-</header>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <app-footer></app-footer>
-</footer>
+<div class="col-sm-12 p-0" [class.no-scroll] = "showNavMenu">
+  <header>
+    <app-nav (emit) = "showNavFn()"></app-nav>
+  </header>
+  <main>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div>
