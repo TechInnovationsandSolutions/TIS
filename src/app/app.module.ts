@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkComponent } from './work/work.component';
 import { OurServicesComponent } from './our-services/our-services.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OurServicesComponent } from './our-services/our-services.component';
     LandingPageComponent,
     ContactComponent,
     WorkComponent,
-    OurServicesComponent
+    OurServicesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

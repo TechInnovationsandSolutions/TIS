@@ -4,6 +4,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkComponent } from './work/work.component';
 import { OurServicesComponent } from './our-services/our-services.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'services',
     component: OurServicesComponent
+  }
+  ,
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 
