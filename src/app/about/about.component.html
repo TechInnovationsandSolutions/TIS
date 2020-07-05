@@ -1,1 +1,82 @@
-<p>about works!</p>
+<section class="about-us-page">
+  <div class="hero-page">
+    <div class="hero-content-wrapper text-center d-flex flex-wrap m-autor">
+      <h2 class="page-title w-100">
+        Get to know Us More
+      </h2>
+      <p class="subtitle w-100">
+        We put you first and deliver to the utmost tech standards with professionalism and integrity at our core.
+      </p>
+    </div>
+  </div>
+  <div class="d-flex flex-wrap col-sm-12 page-content-section-wrapper">
+    <div class="page-content-section about-us-content">
+      <h3>
+        About us
+      </h3>
+      <p>
+        We are a tech company committed to innovation and developing software solutions to solve problems and make life
+        easier for the public and our clients.
+      </p>
+    </div>
+    <div class="page-content-section mission-vision d-flex flex-wrap">
+      <div class="mission-card statement-card">
+        <h3>
+          Our Mission
+        </h3>
+        <p>
+
+        </p>
+      </div>
+      <div class="vision-card statement-card">
+        <h3>
+          Our Vision
+        </h3>
+        <p>
+
+        </p>
+      </div>
+    </div>
+    <div class="page-content-section our-approach-content">
+      <h3>
+        Our Approach
+      </h3>
+      <p>
+        We are a tech company committed to innovation and developing software solutions to solve problems and make life
+        easier for the public and our clients.
+      </p>
+    </div>
+  </div>
+  <div class="page-content-section get-to-know-us-content w-100">
+    <h3 class="col-sm-12 px-0">
+      Why should you choose <span style="color: #fff;">TIS?</span>
+    </h3>
+    <div class="slider-container col-sm-12 p-0">
+      <div class="slider">
+        <div class="slide-item fadeSlide" *ngFor="let slide of sliderContents; index as i"
+          [style.display]="i == slideIndex ? 'flex' : 'none'" [class.active]="i == slideIndex">
+          <img [src]="slide?.src" alt="Images taht represents {{slide.title}} at TIS">
+        </div>
+      </div>
+    </div>
+    <div class="slider-contents fadeText">
+      <p class="slider-title">
+        <span class="w-100 text-center my-auto">
+          {{selectedSliderContent?.title}}
+        </span>
+      </p>
+      <p class="slider-content">
+        <span class="my-auto">
+          {{selectedSliderContent?.content}}
+        </span>
+      </p>
+      <div class="slider-nav">
+        <ul>
+          <li class="slideNo" [class.active]="i == slideIndex" *ngFor="let slide of sliderContents; index as i">
+            <span>{{i + 1}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
