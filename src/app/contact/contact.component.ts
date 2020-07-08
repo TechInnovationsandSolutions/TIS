@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { IContact } from 'src/app/core';
+import { TiswebService } from '../services/tisweb.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   contactForm = this.fb.group({
     firstname: ['', [Validators.required]],
     lastname: ['', [Validators.required]],
@@ -16,12 +19,18 @@ export class ContactComponent implements OnInit {
         this.validatePhoneNumber
       ]
     ],
-    body: ['', [Validators.required]]
+    msgBody: ['', [Validators.required]]
   });
+  toastName = '';
+  showToaster = false;
+  isLoading = false;
+  messageSentSuccessfully = false;
 
+  subscription: Subscription;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private serv : TiswebService
   ) { }
 
   get getContactFrom() {
@@ -37,11 +46,36 @@ export class ContactComponent implements OnInit {
     return isNotValidPhone ? null : {isNotValidPhone: true};
   }
 
+  hideToaster() {
+    this.showToaster = false;
+    this.messageSentSuccessfully = false;
+  }
+
   onSubmit() {
     if (this.contactForm.invalid) {
       return;
     }
 
-    console.log('form values', this.contactForm.value);
+    const msg: IContact = this.contactForm.value;
+
+    // console.log('form values', msg);
+    this.isLoading = true;
+    this.subscription = this.serv.sendEmail(msg).subscribe(r => {
+      // console.log(r);
+      this.toastName = msg.firstname + ' ' + msg.lastname;
+
+      this.isLoading = false;
+      if (r.accepted.length) {
+        this.messageSentSuccessfully = true;
+        this.showToaster = true;
+        this.contactForm.reset();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

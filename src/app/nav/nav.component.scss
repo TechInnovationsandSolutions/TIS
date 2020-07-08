@@ -173,6 +173,7 @@ nav {
     height: calc(100% - #{$pT});
     top: $pT;
     transition: 1.5s;
+    overflow-y: auto;
 
     &.open {
       transform: none;

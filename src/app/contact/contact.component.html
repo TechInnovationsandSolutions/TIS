@@ -34,14 +34,36 @@
         </div>
         <div class="form-group">
           <label for="message" class="sr-only">Enter Project Details</label>
-          <textarea id="message" type="text" formControlName="body" placeholder="Enter Project Details" [ngClass]="{' is-invalid': getContactFrom.body.invalid && getContactFrom.body.dirty}"></textarea>
+          <textarea id="message" type="text" formControlName="msgBody" placeholder="Enter Project Details" [ngClass]="{' is-invalid': getContactFrom.msgBody.invalid && getContactFrom.msgBody.dirty}"></textarea>
         </div>
         <div class="col-sm-12 d-flex flex-wrap py-2 px-0">
           <button type="submit" class="mr-0 ml-auto" [disabled]="contactForm.invalid || contactForm.pristine">
             Send
+            <span *ngIf="isLoading" class="spinner-border text-light mx-2" role="status">
+              <span class="sr-only">Loading...</span>
+            </span>
           </button>
         </div>
       </form>
+    </div>
+  </div>
+  <!-- Flexbox container for aligning the toasts -->
+  <div *ngIf="showToaster" class="d-flex justify-content-center align-items-center" style="background: rgba(0,0,0,0.9);height: 100%;width: 100%;position: absolute;display: flex;z-index: 55;" (click) = "hideToaster()">
+
+    <!-- Then put toasts within -->
+    <div class="bg-light mx-auto mt-5 mb-auto" style="min-height: 200px; width: 95%; max-width: 400px;">
+      <div class="toast-header">
+        <strong class="mr-auto">Thank you</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click) = "hideToaster()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        <p>Hi <span class="text-primary">{{toastName}}</span>.</p>
+        <p class="message">
+          {{messageSentSuccessfully ? 'Your message has been received. We will contact you with the next 48 hours.' : 'Message not sent. Kindly try again later.'}}
+        </p>
+      </div>
     </div>
   </div>
 </section>
