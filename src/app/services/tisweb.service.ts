@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TiswebService {
-  private _url = 'http://localhost:3000/';
+  private _url = 'https://boring-name.herokuapp.com/';
 
   constructor(
     private sanitizer: DomSanitizer,
