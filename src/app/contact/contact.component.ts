@@ -70,6 +70,9 @@ export class ContactComponent implements OnInit, OnDestroy {
         this.showToaster = true;
         this.contactForm.reset();
       }
+
+      // window.scrollTo(0, 0);
+      document.body.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   }
 
