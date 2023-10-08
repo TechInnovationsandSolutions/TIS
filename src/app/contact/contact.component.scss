@@ -1,0 +1,168 @@
+@import './../variable';
+
+@mixin gradBackground {
+  background: linear-gradient(180deg, #E77F7F 0%, #2B3990 100%);
+}
+
+@mixin gradMdBackground {
+  background: linear-gradient(113.37deg, #E77F7F -10.78%, #2B3990 60.3%);
+}
+
+.contact-page {
+  width: 100vw;
+
+  .contact-page-content-wrapper {
+    width: 100%;
+  }
+
+  .hero-page {
+    @include flexWithMaxWidth();
+    min-height: 213px;
+    justify-content: center;
+    align-content: center;
+    @include gradBackground();
+
+    h2 {
+      width: 100%;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 43px;
+      color: #FFF;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 10px;
+      line-height: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .form-container {
+    @include flexWithMaxWidth();
+    padding: 20px 50px 50px;
+
+    form {
+      width: 100%;
+      max-width: 226px;
+      margin: auto;
+
+      .form-group {
+        @include maxWithWidth100();
+        margin: 0 0 16px;
+        padding: 0;
+        background: #F8F8F8;
+
+        input, textarea {
+          @include maxWithWidth100();
+          padding: 8px 16px;
+          background: #F8F8F8;
+          border-radius: $brA;
+          border: 0;
+          border-bottom-color: #000;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 17px;
+        }
+
+        input {
+          border-bottom: 1.5px solid #000;
+        }
+
+        textarea {
+          height: 188px;
+          resize: none;
+          border-bottom: 4px solid #000;
+        }
+      }
+
+      button[type='submit'] {
+        border: 0;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 16px;
+        color: #FFFFFF;
+        background: $green;
+        border-radius: $brA;
+        padding: 7px 11px;
+        text-align: center;
+        transition: 1.5s ease-in all;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    @include gradMdBackground();
+    height: 100vh;
+    @include flexWrap();
+    width: 100%;
+
+    .contact-page-content-wrapper {
+      width: 90%;
+      max-width: 1200px;
+      margin: 117px auto auto;
+      @include flexWrap();
+
+      .form-container, .hero-page {
+        width: 50%;
+      }
+
+      .hero-page {
+        background: none;
+        margin-bottom: auto;
+        justify-content: initial;
+        align-content: initial;
+        padding-top: 0;
+
+        h2 {
+          font-size: 60px;
+          margin-bottom: 107px;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 26px;
+          text-align: left;
+        }
+      }
+
+      .form-container {
+        background: #FFFFFF;
+        border-radius: 6px;
+        padding: 51px 58px;
+
+        form {
+          width: 100%;
+          max-width: 100%;
+          @include flexWrap();
+
+          .fg-50 {
+            width: 50%;
+            max-width: 50%;
+
+            &:nth-child(odd) {
+              margin-left: 0;
+              padding-right: 20px;
+            }
+
+            &:nth-child(even) {
+              margin-right: 0;
+              padding-left: 20px;
+            }
+          }
+
+          input, textarea {
+            font-size: 15px;
+          }
+
+          button[type='submit'] {
+            padding: 13px 44px;
+          }
+        }
+      }
+    }
+  }
+}

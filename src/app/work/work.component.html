@@ -1,0 +1,43 @@
+<section class="work-page">
+  <div class="hero-page">
+    <div class="col-sm-12 text-center">
+      <p>
+        We work on a variety of products across different sectors,
+      </p>
+      <p>
+        thanks to our vast wealth of expertise in software development.
+      </p>
+      <p>
+        You can view some of our products here.
+      </p>
+    </div>
+  </div>
+  <div class="list-of-works">
+    <div class="work" *ngFor="let work of works">
+      <div class="work-header">
+        <img [src]="work.logo" alt="Logo of {{work.name}}" class="work-company-logo">
+        <div class="work-title">
+          <p class="work-company-name">
+            {{work.name}}
+          </p>
+          <p class="work-type">
+            {{work.work_type}}
+          </p>
+        </div>
+      </div>
+      <div class="work-desc">
+        <p>
+          {{work.work_desc}}
+        </p>
+      </div>
+      <div class="work-showcase">
+        <div class="work-showcase-img-container">
+          <img [src]="work.work_showcase" alt="showcase of work done by TIS for {{work.name}}" class="work-showcase-img">
+        </div>
+        <a role="button" rel="noopener" [href]="work.url" target="_blank" class="view-work">
+          View More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

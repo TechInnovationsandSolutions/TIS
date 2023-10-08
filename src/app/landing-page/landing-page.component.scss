@@ -1,0 +1,317 @@
+@import './../variable';
+
+.landing-page {
+
+  & > div {
+    @include flexWithMaxWidth();
+  }
+
+  .who-we-are, .what-we-do, .testimonial {
+    padding: 30px;
+  }
+
+  .roundWithRadius {
+    background: #FFFFFF;
+    box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.02);
+    border-radius: 11px;
+    margin: 20px auto;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .section-title {
+    text-align: center;
+    @include maxWithWidth100();
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .first-section {
+    min-height: calc(100vh - 148px);
+    background: $deepBlue;
+    color: #fff;
+
+    &, .contents, .layers {
+      @include flexWrap();
+    }
+
+    .layers, .title, .content {
+      @include  maxWithWidth100();
+    }
+
+    .contents {
+      @include wid100();
+      max-width: 609px;
+      padding: 30px;
+      align-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 26px;
+    }
+
+    .subtitle {
+      margin-bottom: 15px;
+      line-height: 23px;
+      color: rgba(255, 255, 255, 0.9);
+      // padding-right: 34px;
+      max-width: 551px;
+    }
+
+    .btn-get-in-touch {
+      padding: 10px 25px;
+      background: #fff;
+      color: $deepBlue;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: $brA;
+    }
+
+    .layers {
+      margin-top: auto;
+      margin-bottom: 0;
+
+      .layer {
+        @include wid100();
+        height: 38px;
+        margin: 0;
+
+        &.layer-1 {
+          background: $brandPink;
+          max-width: 950px;
+        }
+
+        &.layer-2 {
+          background: $brandOrange;
+        }
+      }
+    }
+  }
+
+  .who-we-are {
+    .content-wrapper, .text-content {
+      @include flexWithMaxWidth();
+    }
+
+    .text-content, .who-we-are-svg {
+      margin: auto;
+    }
+
+    p {
+      @include wid100();
+      max-width: 262px;
+      text-align: center;
+      margin: auto auto 16px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .what-we-do {
+    background: #FAFAFA;
+
+    .list-of-what-we-do {
+      @include flexWithMaxWidth();
+      justify-content: center;
+
+      .list-item-of-what-we-do {
+        padding: 28px 25px 40px;
+        $maxS: 250px;
+        max-width: $maxS;
+
+        .list-item-of-what-we-do-header {
+          @include flexWrap();
+          justify-content: center;
+
+          .icon, .list-item-of-what-we-do-title {
+            margin-top: auto;
+            margin-bottom: auto;
+          }
+
+          .icon {
+            @extend .list-item-of-what-we-do-header;
+            $d: 34px;
+            height: $d;
+            width: $d;
+            align-items: center;
+          }
+
+          .list-item-of-what-we-do-title {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 26px;
+            margin-left: 10px;
+          }
+        }
+
+        .list-item-of-what-we-do-content {
+          @include maxWithWidth100();
+
+          p {
+            @extend .list-item-of-what-we-do-content;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .testimonial {
+    background: $veryLightBlue;
+
+    .list-of-testimonials {
+      @include flexWithMaxWidth();
+      justify-content: center;
+
+      .list-item-of-testimonial {
+        @include flexWrap();
+        $dS: 320px;
+        width: 100%;
+        max-width: $dS;
+        height: $dS;
+        text-align: center;
+        padding: 20px 50px;
+
+        .list-item-of-testimonial-header,
+        .list-item-of-testimonial-content,
+        .list-item-of-testimonial-footer {
+          @include flexWithMaxWidth();
+        }
+
+        hr {
+          background: #C4C4C4;
+          border-radius: 7px;
+          width: 70px;
+          height: 2px;
+          margin: 20px auto;
+          padding: 0;
+        }
+
+        .list-item-of-testimonial-header {
+          p {
+            font-size: 12px;
+            line-height: 17px;
+            width: 100%;
+            max-width: 208px;
+            margin: auto;
+          }
+        }
+
+        .list-item-of-testimonial-content {
+          p {
+            width: 95%;
+            max-width: 208px;
+            margin: 0 auto;
+            font-size: 12px;
+            line-height: 17px;
+          }
+        }
+
+        .list-item-of-testimonial-footer {
+          .testimonial-footer-img-wrapper {
+            @include maxWithWidth100();
+
+            .testimonial-footer-img-container {
+              $dr: 50px;
+              width: $dr;
+              height: $dr;
+              margin: auto;
+              @include flexWrap();
+
+              img {
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          p {
+            @extend .testimonial-footer-img-wrapper;
+            text-align: center;
+
+            &.testimonial-name {
+              font-weight: bold;
+              font-size: 13px;
+              line-height: 19px;
+            }
+
+            &.testimonial-title {
+              font-size: 11px;
+              line-height: 16px;
+              color: #C4C4C4;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .who-we-are {
+      .content-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        max-width: $maxWidthSt;
+        margin: 0 auto;
+
+        .text-content, .who-we-are-svg {
+          grid-row: 1/2;
+        }
+
+        .text-content {
+          grid-column: 1/2;
+          margin-left: 0;
+          text-align: left;
+
+          .section-title, p {
+            text-align: left;
+          }
+
+          p {
+            width: auto;
+            max-width: 415px;
+            margin-left: 0;
+          }
+        }
+
+        .who-we-are-svg {
+          grid-column: 2/3;
+          margin-right: 0;
+          max-width: 400px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .first-section {
+      .contents {
+        padding-left: 0;
+        max-width: $maxWidthSt;
+        margin: auto;
+      }
+    }
+
+    .what-we-do {
+      .list-of-what-we-do {
+        .list-item-of-what-we-do {
+          $maxS: 350px;
+          max-width: $maxS;
+          max-height: $maxS;
+        }
+      }
+    }
+  }
+}

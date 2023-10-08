@@ -1,0 +1,228 @@
+@import "./../variable";
+
+.footer {
+  @include flexWithMaxWidth();
+
+  p {
+    @include maxWithWidth100();
+    text-align: center;
+
+    &.copyright {
+      color: #c4c4c4;
+      padding-bottom: 50px;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    &.footer_section-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      color: #535050;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      height: fit-content;
+    }
+  }
+
+  .footer_section {
+    @include flexWithMaxWidth();
+    padding: 30px;
+
+    ul {
+      @include flexWithMaxWidth();
+      list-style: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .footer_section--sub {
+    @extend .footer;
+    height: fit-content;
+  }
+
+  .footer_section--1 {
+    background: #fafafa;
+    text-align: center;
+    padding-top: 50px;
+
+    p {
+      &:first-of-type {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 21px;
+      }
+
+      &:last-of-type {
+        font-size: 11px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.72);
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    a {
+      font-size: 12px;
+      line-height: 17px;
+      border-radius: $brA;
+      background: $green;
+      padding: 4px 18px;
+      margin: auto auto 21px;
+      color: #ffffff;
+    }
+  }
+
+  .footer_section--2 {
+    max-width: 1000px;
+    margin: auto;
+
+    #footer-logo {
+      @include flexWrap();
+      margin: auto;
+
+      span.icon {
+        @include flexWithMaxWidth();
+        width: 126px;
+        margin: auto auto 23px;
+
+        svg {
+          margin: 0 auto;
+        }
+
+        span.logo-text {
+          @include flexWrap();
+          width: 121px;
+          margin: auto;
+
+          span {
+            @include maxWithWidth100();
+            font-weight: bold;
+            text-align: center;
+            font-size: 10px;
+            line-height: 14px;
+
+            &.top {
+              letter-spacing: 0.06em;
+            }
+
+            &.bottom {
+              font-weight: bold;
+              letter-spacing: 0.7em;
+            }
+          }
+        }
+      }
+    }
+
+    .motto {
+      font-size: 14px;
+      line-height: 20px;
+      color: $pseudoBlack;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    .footer_section-contacts {
+      max-width: 150px;
+
+      .contact {
+        @include maxWithWidth100();
+        display: grid;
+        grid-template-columns: 24px auto;
+        margin: 10px auto;
+        color: $pseudoBlack;
+        font-size: 10px;
+        line-height: 14px;
+
+        a {
+          color: $pseudoBlack;
+        }
+      }
+    }
+
+    .footer_section-social-media {
+      max-width: 160px;
+
+      li {
+        display: inline-block;
+        margin: auto;
+
+        a.social-media {
+          @include flexWrap();
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .footer_section--sub {
+      width: calc((100% - 20px) / 3);
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:first-of-type {
+        margin-right: 0;
+      }
+
+      #footer-logo {
+        span.icon {
+          margin-left: 0;
+        }
+      }
+
+      .motto {
+        text-align: left;
+      }
+    }
+
+    .footer_section-social-media {
+      height: fit-content;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    p {
+      &.copyright {
+        font-size: 15px;
+      }
+
+      &.footer_section-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .footer_section--1 {
+      p {
+        &:first-of-type {
+          font-size: 35px;
+        }
+
+        &:last-of-type {
+          font-size: 20px;
+          line-height: 28px;
+        }
+      }
+
+      a {
+        font-size: 20px;
+        padding: 8px 30px;
+      }
+    }
+  }
+}

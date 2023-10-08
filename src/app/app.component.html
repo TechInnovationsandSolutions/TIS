@@ -1,0 +1,11 @@
+<div class="col-sm-12 p-0" [class.no-scroll]="showNavMenu">
+  <header>
+    <app-nav (emit)="showNavFn()"></app-nav>
+  </header>
+  <main>
+    <router-outlet (activate)="onActivate()"></router-outlet>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div>
