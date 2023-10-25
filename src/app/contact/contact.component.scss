@@ -1,11 +1,11 @@
-@import './../variable';
+@import "./../variable";
 
 @mixin gradBackground {
-  background: linear-gradient(180deg, #E77F7F 0%, #2B3990 100%);
+  background: linear-gradient(180deg, #e77f7f 0%, #2b3990 100%);
 }
 
 @mixin gradMdBackground {
-  background: linear-gradient(113.37deg, #E77F7F -10.78%, #2B3990 60.3%);
+  background: linear-gradient(113.37deg, #e77f7f -10.78%, #2b3990 60.3%);
 }
 
 .contact-page {
@@ -27,7 +27,7 @@
       font-weight: bold;
       font-size: 30px;
       line-height: 43px;
-      color: #FFF;
+      color: #fff;
       text-align: center;
       margin-bottom: 30px;
     }
@@ -54,12 +54,13 @@
         @include maxWithWidth100();
         margin: 0 0 16px;
         padding: 0;
-        background: #F8F8F8;
+        background: #f8f8f8;
 
-        input, textarea {
+        input,
+        textarea {
           @include maxWithWidth100();
           padding: 8px 16px;
-          background: #F8F8F8;
+          background: #f8f8f8;
           border-radius: $brA;
           border: 0;
           border-bottom-color: #000;
@@ -79,16 +80,17 @@
         }
       }
 
-      button[type='submit'] {
+      button[type="submit"] {
         border: 0;
         font-weight: normal;
         font-size: 11px;
         line-height: 16px;
-        color: #FFFFFF;
+        color: #ffffff;
         background: $green;
         border-radius: $brA;
         padding: 7px 11px;
         text-align: center;
+        transition: 1.5s ease-in all;
       }
     }
   }
@@ -105,7 +107,8 @@
       margin: 117px auto auto;
       @include flexWrap();
 
-      .form-container, .hero-page {
+      .form-container,
+      .hero-page {
         width: 50%;
       }
 
@@ -124,11 +127,12 @@
         p {
           font-size: 18px;
           line-height: 26px;
+          text-align: left;
         }
       }
 
       .form-container {
-        background: #FFFFFF;
+        background: #ffffff;
         border-radius: 6px;
         padding: 51px 58px;
 
@@ -139,7 +143,7 @@
 
           .fg-50 {
             width: 50%;
-            max-width: 226px;
+            max-width: 50%;
 
             &:nth-child(odd) {
               margin-left: 0;
@@ -152,11 +156,12 @@
             }
           }
 
-          input, textarea {
+          input,
+          textarea {
             font-size: 15px;
           }
 
-          button[type='submit'] {
+          button[type="submit"] {
             padding: 13px 44px;
           }
         }

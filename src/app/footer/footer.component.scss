@@ -83,6 +83,7 @@
 
     #footer-logo {
       @include flexWrap();
+      margin: auto;
 
       span.icon {
         @include flexWithMaxWidth();

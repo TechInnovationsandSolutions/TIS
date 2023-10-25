@@ -1,9 +1,13 @@
-@import './../variable';
+@import "./../variable";
+
+@mixin workListPadding($p) {
+  margin: -#{$p} auto #{$p};
+}
 
 .work-page {
   .hero-page {
     @include flexWithMaxWidth();
-    background: linear-gradient(180deg, #2B3990 39.06%, #A0A9DC 100%);
+    background: linear-gradient(180deg, $brandBlue 39.06%, #a0a9dc 100%);
     min-height: 137px;
     justify-content: center;
     align-content: center;
@@ -20,11 +24,171 @@
   .list-of-works {
     @include flexWithWidth();
     padding: 0 20px;
-    margin-top: -30px;
+    @include workListPadding(40px);
 
     .work {
       @include flexWithMaxWidth();
-      padding: 30px 16px 15px;
+      padding: 0;
+      background: #fff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      margin-bottom: 36px;
+
+      .work-header,
+      .work-desc,
+      .work-showcase {
+        @include flexWithMaxWidth();
+      }
+
+      .work-header {
+        margin-bottom: 50px;
+        padding-top: 30px;
+        padding-right: 16px;
+        padding-left: 16px;
+
+        .work-company-logo,
+        .work-title {
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+
+        .work-company-logo {
+          $dIm: 100px;
+          width: $dIm;
+          height: $dIm;
+          object-fit: contain;
+        }
+
+        .work-title {
+          flex: 1;
+
+          p {
+            width: 100%;
+
+            &.work-company-name {
+              font-weight: 500;
+              font-size: 20px;
+              margin-bottom: 18px;
+            }
+
+            &.work-type {
+              font-weight: 500;
+              font-size: 16px;
+              color: $brandBlue;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .work-desc {
+        margin-bottom: 50px;
+        padding-right: 16px;
+        padding-left: 16px;
+
+        p {
+          width: 100%;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .work-showcase {
+        .work-showcase-img-container,
+        .view-work {
+          width: 100%;
+        }
+
+        .work-showcase-img-container {
+          @include flexWithMaxWidth();
+
+          .work-showcase-img {
+            @include maxWithWidth100();
+          }
+        }
+
+        .view-work {
+          background: $brandBlue;
+          color: #fff;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          padding: 18px;
+          text-align: center;
+        }
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero-page {
+      padding: 50px;
+
+      p {
+        font-size: 25px;
+        line-height: 30px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .hero-page {
+      padding: 125px;
+    }
+
+    .list-of-works {
+      @include workListPadding(80px);
+
+      .work {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 50% 50%;
+        margin-bottom: 50px;
+        border-radius: 9px;
+
+        .work-header,
+        .work-desc {
+          height: fit-content;
+          grid-column: 1/2;
+          max-width: 400px;
+          margin: 0 auto;
+
+          p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+          }
+        }
+
+        .work-showcase {
+          grid-column: 2/3;
+          grid-row: 1/3;
+        }
+
+        .work-header {
+          .work-title {
+            p.work-type {
+              font-weight: 500;
+              font-size: 24px;
+              line-height: 34px;
+            }
+          }
+        }
+
+        .work-desc {
+          p {
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+          }
+        }
+      }
     }
   }
 }

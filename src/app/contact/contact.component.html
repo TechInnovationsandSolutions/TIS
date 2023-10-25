@@ -3,39 +3,154 @@
     <div class="hero-page">
       <h2>Contact us.</h2>
       <div class="col-sm-12 text-center mx-auto">
-        <p>Have you got an idea Have you got an idea</p>
-        <p>Have you got an idea Have you got an idea</p>
-        <p>Have you got an idea Have you got an idea</p>
+        <p class="mb-4">
+          Tech Innovations and Solutions is a neo-tech institution with a new
+          approach and ideology to providing the best solutions to achieve your
+          business goals.
+        </p>
+        <p class="mb-4">
+          You've probably got questions for us or would like to work with us on
+          specific projects.
+        </p>
+        <p>We'd love to hear from you.</p>
       </div>
     </div>
     <div class="form-container">
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-group fg-50">
           <label for="firstName" class="sr-only">First Name</label>
-          <input id="firstName" type="text" autocomplete="given-name" placeholder="First Name" formControlName="firstname" [ngClass]="{' is-invalid': getContactFrom.firstname.invalid && getContactFrom.firstname.dirty}">
+          <input
+            id="firstName"
+            type="text"
+            autocomplete="given-name"
+            placeholder="First Name"
+            formControlName="firstname"
+            [ngClass]="{
+              ' is-invalid':
+                getContactFrom.firstname.invalid &&
+                getContactFrom.firstname.dirty
+            }"
+          />
         </div>
         <div class="form-group fg-50">
           <label for="lastName" class="sr-only">Last Name</label>
-          <input id="lastName" type="text" autocomplete="family-name" placeholder="Last Name" formControlName="lastname" [ngClass]="{' is-invalid': getContactFrom.lastname.invalid && getContactFrom.lastname.dirty}">
+          <input
+            id="lastName"
+            type="text"
+            autocomplete="family-name"
+            placeholder="Last Name"
+            formControlName="lastname"
+            [ngClass]="{
+              ' is-invalid':
+                getContactFrom.lastname.invalid && getContactFrom.lastname.dirty
+            }"
+          />
         </div>
         <div class="form-group fg-50">
           <label for="phoneNuber" class="sr-only">Phone Number</label>
-          <input id="phoneNuber" type="tel" autocomplete="tel" placeholder="Phone Number" formControlName="phoneNumber" [ngClass]="{' is-invalid': getContactFrom.phoneNumber.invalid && getContactFrom.phoneNumber.dirty}">
+          <input
+            id="phoneNuber"
+            type="tel"
+            autocomplete="tel"
+            placeholder="Phone Number"
+            formControlName="phoneNumber"
+            [ngClass]="{
+              ' is-invalid':
+                getContactFrom.phoneNumber.invalid &&
+                getContactFrom.phoneNumber.dirty
+            }"
+          />
         </div>
         <div class="form-group fg-50">
           <label for="email" class="sr-only">Email Address</label>
-          <input id="email" type="email" autocomplete="email" placeholder="Email Address" formControlName="email" [ngClass]="{' is-invalid': getContactFrom.email.invalid && getContactFrom.email.dirty}">
+          <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="Email Address"
+            formControlName="email"
+            [ngClass]="{
+              ' is-invalid':
+                getContactFrom.email.invalid && getContactFrom.email.dirty
+            }"
+          />
         </div>
         <div class="form-group">
           <label for="message" class="sr-only">Enter Project Details</label>
-          <textarea id="message" type="text" formControlName="body" placeholder="Enter Project Details" [ngClass]="{' is-invalid': getContactFrom.body.invalid && getContactFrom.body.dirty}"></textarea>
+          <textarea
+            id="message"
+            type="text"
+            formControlName="msgBody"
+            placeholder="Enter Project Details"
+            [ngClass]="{
+              ' is-invalid':
+                getContactFrom.msgBody.invalid && getContactFrom.msgBody.dirty
+            }"
+          ></textarea>
         </div>
         <div class="col-sm-12 d-flex flex-wrap py-2 px-0">
-          <button type="submit" class="mr-0 ml-auto" [disabled]="contactForm.invalid || contactForm.pristine">
+          <button
+            type="submit"
+            class="mr-0 ml-auto"
+            [disabled]="contactForm.invalid || contactForm.pristine"
+          >
             Send
+            <span
+              *ngIf="isLoading"
+              class="spinner-border spinner-border-sm text-light ml-3 mr-0"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </span>
           </button>
         </div>
       </form>
+    </div>
+  </div>
+  <!-- Flexbox container for aligning the toasts -->
+  <div
+    *ngIf="showToaster"
+    class="d-flex justify-content-center align-items-center"
+    style="
+      background: rgba(0, 0, 0, 0.9);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      z-index: 55;
+    "
+    (click)="hideToaster()"
+  >
+    <!-- Then put toasts within -->
+    <div
+      class="bg-light mx-auto mt-5 mb-auto"
+      style="min-height: 200px; width: 95%; max-width: 400px"
+    >
+      <div class="toast-header">
+        <strong class="mr-auto">Thank you</strong>
+        <button
+          type="button"
+          class="ml-2 mb-1 close"
+          data-dismiss="toast"
+          aria-label="Close"
+          (click)="hideToaster()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        <p>
+          Hi <span class="text-primary">{{ toastName }}</span
+          >.
+        </p>
+        <p class="message">
+          {{
+            messageSentSuccessfully
+              ? "Your message has been received. We will get back to you as soon as possible."
+              : "Message not sent. Kindly try again later."
+          }}
+        </p>
+      </div>
     </div>
   </div>
 </section>
