@@ -51,5 +51,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           ssh_private_key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.DEPLOY_PORT }}
-          localPath: "./dist"
-          remotePath: "/home/ubuntu/staging/frontend/"
+          local_path: "./dist"
+          remote_path: "/home/ubuntu/staging/frontend/"
