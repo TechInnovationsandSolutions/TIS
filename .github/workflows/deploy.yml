@@ -42,7 +42,7 @@ jobs:
         with:
           name: dist-without-markdown
           path: |
-            .dist
+            dist
 
       - name: Copy build folder to server
         uses: Creepios/sftp-action@v1.0.3
@@ -52,17 +52,4 @@ jobs:
           privateKey: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.DEPLOY_PORT }}
           localPath: "./dist"
-          remotePath: "/home/devops/zuri_frontend/zuriportfolio-frontend/"
-
-      - name: run app
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.DEPLOY_HOST_STAGING }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            su - devops
-            cd /home/devops/zuri_frontend/zuriportfolio-frontend
-            yarn install --ignore-engines
-            pm2 restart zuri_frontend
+          remotePath: "/home/ubuntu/staging/frontend/"
