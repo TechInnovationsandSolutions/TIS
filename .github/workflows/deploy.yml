@@ -45,11 +45,11 @@ jobs:
             dist
 
       - name: Copy build folder to server
-        uses: Creepios/sftp-action@v1.0.3
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: ${{ secrets.DEPLOY_HOST_STAGING }}
+          server: ${{ secrets.DEPLOY_HOST_STAGING }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.SSH_KEY }}
+          ssh_private_key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.DEPLOY_PORT }}
           localPath: "./dist"
           remotePath: "/home/ubuntu/staging/frontend/"
